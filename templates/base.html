@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/bulma.min.css">
+    <script src="static/filesaver.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/code.js"></script>
+</head>
+<body>
+    <div class="container is-fluid">
+            <div class="column">
+                <video controls id="video">
+                    <source id="video_src" src="" type="video/mp4">
+                </video>
+            </div>
+        <div class="columns">
+            
+            {% for group in videos %}
+            <div class="column is-one-quarter">
+                <aside class="menu is-size-3">
+                    <p class="menu-label">
+                        {{group[0]}}
+                    </p>
+                    <ul class="menu-list">
+                        {% for name in group[1] %}
+                        {%set display = name.split("/")[1]%}
+                        <li><a class="video_btn" id="{{name}}">{{display}}</a></li>
+                        {%endfor%}  
+                    </ul>
+                </aside>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+</html>
