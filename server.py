@@ -6,11 +6,14 @@ def create_app():
     @app.route("/")
     def hello_world():
         print(os.getcwd())
-        folders = os.listdir("/home/tech/VideoTutorial/static/videos/")
+        video_folder = "/home/tech/VideoTutorial/static/videos/"
+        # video_folder = "static/videos/"
+        
+        folders = os.listdir(video_folder)
         videos = []
         for folder in folders:
             temp = [folder,[]]
-            for video in os.listdir("/home/tech/VideoTutorial/static/videos/"+folder):
+            for video in os.listdir(video_folder+folder):
                  print(video)
                  temp[1].append(folder+"/"+video.split(".")[0])
             videos.append(temp)
